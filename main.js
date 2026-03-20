@@ -173,6 +173,23 @@ const i18nData = {
     sv6_l3: 'Copywriting-Briefing',          sv6_l4: 'Content-Strategie',
     sv6_l5: 'SEO-Texte & Headlines',         sv6_l6: 'Social Content-Konzept',
 
+    sv7_title: 'Event-Technik',        sv7_tagline: 'Vermittlung & Vermietung',
+    sv7_desc:  'Wir vermitteln und vermieten alles, was dein Event technisch und atmosphärisch braucht — von der PA-Anlage bis zum Lounge-Möbel. Ein Ansprechpartner, alles aus einer Hand.',
+    sv7_l1: 'Mikrofone & PA-Systeme',        sv7_l2: 'Beleuchtung & Bühnen-Rigging',
+    sv7_l3: 'Möbel & Ausstattung',           sv7_l4: 'Kabel, Netzwerk & Strom',
+    sv7_l5: 'Event-Software & Streaming',    sv7_l6: 'Auf- & Abbau-Koordination',
+
+    sv8_title: 'Social Media',         sv8_tagline: 'Planung & Umsetzung',
+    sv8_desc:  'Von der Strategie bis zum fertigen Post — wir planen und produzieren deine Social-Media-Präsenz so, dass sie deine Marke stärkt und echte Reichweite erzeugt.',
+    sv8_l1: 'Content-Strategie & Redaktionsplan', sv8_l2: 'Content Creation (Bild, Video, Text)',
+    sv8_l3: 'Community Management',               sv8_l4: 'Story- & Reels-Produktion',
+    sv8_l5: 'Analytics & Reporting',              sv8_l6: 'Paid Social & Anzeigen',
+
+    s7_title: 'Event-Technik',
+    s7_desc:  'Vermittlung und Vermietung von Mikrofonen, Möbeln, Kabeln und allem, was dein Event braucht.',
+    s8_title: 'Social Media',
+    s8_desc:  'Planung und Umsetzung deiner Social-Media-Präsenz — von der Strategie bis zum fertigen Post.',
+
     /* Work page */
     wk_label:   'Portfolio',
     wk_heading: 'Projekte, die Eindruck hinterlassen.',
@@ -409,6 +426,23 @@ const i18nData = {
     sv6_l1: 'Image Editing & Art Direction', sv6_l2: 'Photography Brief',
     sv6_l3: 'Copywriting Brief',             sv6_l4: 'Content Strategy',
     sv6_l5: 'SEO Copy & Headlines',          sv6_l6: 'Social Content Concept',
+
+    sv7_title: 'Event Technology',     sv7_tagline: 'Procurement & Rental',
+    sv7_desc:  'We source and rent everything your event needs technically and atmospherically — from PA systems to lounge furniture. One contact, everything from one place.',
+    sv7_l1: 'Microphones & PA Systems',      sv7_l2: 'Lighting & Stage Rigging',
+    sv7_l3: 'Furniture & Equipment',         sv7_l4: 'Cables, Network & Power',
+    sv7_l5: 'Event Software & Streaming',    sv7_l6: 'Setup & Breakdown Coordination',
+
+    sv8_title: 'Social Media',         sv8_tagline: 'Planning & Execution',
+    sv8_desc:  'From strategy to finished post — we plan and produce your social media presence so it strengthens your brand and generates real reach.',
+    sv8_l1: 'Content Strategy & Editorial Plan', sv8_l2: 'Content Creation (Image, Video, Copy)',
+    sv8_l3: 'Community Management',              sv8_l4: 'Story & Reels Production',
+    sv8_l5: 'Analytics & Reporting',             sv8_l6: 'Paid Social & Ads',
+
+    s7_title: 'Event Technology',
+    s7_desc:  'Procurement and rental of microphones, furniture, cables and everything your event needs.',
+    s8_title: 'Social Media',
+    s8_desc:  'Planning and execution of your social media presence — from strategy to the finished post.',
 
     /* Work page */
     wk_label:   'Portfolio',
