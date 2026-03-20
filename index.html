@@ -48,12 +48,116 @@
 
         <div class="hero-visual">
           <div class="hero-image-frame">
-            <img src="hero.png" alt="FORMA Studio — kreative Köpfe bei der Arbeit" class="hero-photo">
-            <!-- Foreground overlay elements -->
-            <div class="hero-overlay-elements">
-              <div class="hero-canvas-rect"></div>
-              <div class="hero-canvas-wordmark">FORMA</div>
-            </div>
+            <!-- ===== FORMA — Animated Hero SVG ===== -->
+            <svg class="hero-forma-svg" viewBox="0 0 400 500" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <defs>
+                <!-- Subtle grid pattern -->
+                <pattern id="hgrid" width="40" height="40" patternUnits="userSpaceOnUse">
+                  <path d="M40 0 L0 0 L0 40" fill="none" stroke="rgba(255,255,255,0.038)" stroke-width="1"/>
+                </pattern>
+                <!-- Amber radial glow -->
+                <radialGradient id="ambglow" cx="50%" cy="44%" r="55%">
+                  <stop offset="0%"   stop-color="rgba(245,158,11,0.1)"/>
+                  <stop offset="100%" stop-color="rgba(245,158,11,0)"/>
+                </radialGradient>
+              </defs>
+
+              <!-- Grid fill -->
+              <rect width="400" height="500" fill="url(#hgrid)"/>
+              <!-- Ambient amber glow -->
+              <ellipse cx="200" cy="220" rx="180" ry="170" fill="url(#ambglow)"/>
+
+              <!-- ── Corner brackets ── -->
+              <path d="M20 20 L60 20 L60 46" fill="none" stroke="rgba(245,158,11,0.48)" stroke-width="1.5" stroke-linecap="round"/>
+              <path d="M380 20 L340 20 L340 46" fill="none" stroke="rgba(245,158,11,0.48)" stroke-width="1.5" stroke-linecap="round"/>
+              <path d="M20 480 L60 480 L60 454" fill="none" stroke="rgba(245,158,11,0.48)" stroke-width="1.5" stroke-linecap="round"/>
+              <path d="M380 480 L340 480 L340 454" fill="none" stroke="rgba(245,158,11,0.48)" stroke-width="1.5" stroke-linecap="round"/>
+
+              <!-- ── Outer dashed ring — very slow CCW ── -->
+              <circle class="hero-ring-outer" cx="200" cy="222" r="160" fill="none" stroke="rgba(255,255,255,0.055)" stroke-width="1" stroke-dasharray="10 16"/>
+
+              <!-- ── Crosshair axis lines ── -->
+              <line x1="200" y1="28" x2="200" y2="416" stroke="rgba(255,255,255,0.05)" stroke-width="0.75"/>
+              <line x1="16"  y1="222" x2="384" y2="222" stroke="rgba(255,255,255,0.05)" stroke-width="0.75"/>
+
+              <!-- ── FORMA — large watermark (behind all rings) ── -->
+              <text class="hero-wm"
+                x="200" y="370"
+                text-anchor="middle"
+                font-family="'Cormorant Garamond', serif"
+                font-size="94" font-weight="600"
+                fill="rgba(245,158,11,0.19)"
+                letter-spacing="-3">FORMA</text>
+
+              <!-- ── Mid dashed ring — CW ── -->
+              <circle class="hero-ring-mid" cx="200" cy="222" r="110" fill="none" stroke="rgba(245,158,11,0.11)" stroke-width="1" stroke-dasharray="5 10"/>
+
+              <!-- ── 8 radiating spokes ── -->
+              <line x1="200" y1="222" x2="200" y2="62"  stroke="rgba(255,255,255,0.038)" stroke-width="1"/>
+              <line x1="200" y1="222" x2="313" y2="109" stroke="rgba(255,255,255,0.038)" stroke-width="1"/>
+              <line x1="200" y1="222" x2="360" y2="222" stroke="rgba(255,255,255,0.038)" stroke-width="1"/>
+              <line x1="200" y1="222" x2="313" y2="335" stroke="rgba(255,255,255,0.038)" stroke-width="1"/>
+              <line x1="200" y1="222" x2="200" y2="382" stroke="rgba(255,255,255,0.038)" stroke-width="1"/>
+              <line x1="200" y1="222" x2="87"  y2="335" stroke="rgba(255,255,255,0.038)" stroke-width="1"/>
+              <line x1="200" y1="222" x2="40"  y2="222" stroke="rgba(255,255,255,0.038)" stroke-width="1"/>
+              <line x1="200" y1="222" x2="87"  y2="109" stroke="rgba(255,255,255,0.038)" stroke-width="1"/>
+
+              <!-- ── Compass nodes on mid ring ── -->
+              <circle class="hero-node-a" cx="200" cy="112" r="5.5" fill="rgba(245,158,11,0.18)" stroke="rgba(245,158,11,0.72)" stroke-width="1.5"/>
+              <circle class="hero-node-b" cx="310" cy="222" r="5.5" fill="rgba(255,255,255,0.07)" stroke="rgba(255,255,255,0.38)" stroke-width="1.5"/>
+              <circle class="hero-node-a" cx="200" cy="332" r="5.5" fill="rgba(245,158,11,0.18)" stroke="rgba(245,158,11,0.72)" stroke-width="1.5"/>
+              <circle class="hero-node-b" cx="90"  cy="222" r="5.5" fill="rgba(255,255,255,0.07)" stroke="rgba(255,255,255,0.38)" stroke-width="1.5"/>
+
+              <!-- ── Rotating diamond at center ── -->
+              <g class="hero-diamond-g" style="transform-origin: 200px 222px">
+                <rect x="161" y="183" width="78" height="78" rx="2"
+                  fill="rgba(245,158,11,0.045)" stroke="rgba(245,158,11,0.32)" stroke-width="1.5"
+                  transform="rotate(45,200,222)"/>
+                <rect x="175" y="197" width="50" height="50" rx="1"
+                  fill="none" stroke="rgba(245,158,11,0.13)" stroke-width="1"
+                  transform="rotate(45,200,222)"/>
+              </g>
+
+              <!-- ── Inner fast ring (CCW) ── -->
+              <circle class="hero-ring-inner" cx="200" cy="222" r="37" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1" stroke-dasharray="3 6"/>
+
+              <!-- ── Ripple rings from center ── -->
+              <circle class="hero-ripple-1" cx="200" cy="222" r="16" fill="none" stroke="rgba(245,158,11,0.45)" stroke-width="1.5"/>
+              <circle class="hero-ripple-2" cx="200" cy="222" r="16" fill="none" stroke="rgba(245,158,11,0.45)" stroke-width="1.5"/>
+
+              <!-- ── Center focal dot ── -->
+              <circle cx="200" cy="222" r="7" fill="rgba(245,158,11,0.22)" stroke="#F59E0B" stroke-width="2"/>
+              <circle cx="200" cy="222" r="2.5" fill="#F59E0B"/>
+
+              <!-- ── Edge tick marks ── -->
+              <line x1="16" y1="172" x2="30" y2="172" stroke="rgba(245,158,11,0.32)" stroke-width="1"/>
+              <line x1="16" y1="222" x2="36" y2="222" stroke="rgba(245,158,11,0.45)" stroke-width="1"/>
+              <line x1="16" y1="272" x2="30" y2="272" stroke="rgba(245,158,11,0.32)" stroke-width="1"/>
+              <line x1="384" y1="172" x2="370" y2="172" stroke="rgba(245,158,11,0.32)" stroke-width="1"/>
+              <line x1="384" y1="222" x2="364" y2="222" stroke="rgba(245,158,11,0.45)" stroke-width="1"/>
+              <line x1="384" y1="272" x2="370" y2="272" stroke="rgba(245,158,11,0.32)" stroke-width="1"/>
+
+              <!-- ── Blinking corner dots ── -->
+              <circle class="hero-dot-1" cx="66" cy="66" r="2.5" fill="rgba(245,158,11,0.6)"/>
+              <circle class="hero-dot-2" cx="334" cy="66" r="2.5" fill="rgba(245,158,11,0.6)"/>
+              <circle class="hero-dot-3" cx="66" cy="378" r="2.5" fill="rgba(245,158,11,0.6)"/>
+              <circle class="hero-dot-4" cx="334" cy="378" r="2.5" fill="rgba(245,158,11,0.6)"/>
+
+              <!-- ── Scan line (travels top → bottom) ── -->
+              <rect class="hero-scan" x="0" y="221" width="400" height="1.5" fill="rgba(245,158,11,0.24)"/>
+
+              <!-- ── STUDIO label ── -->
+              <text x="200" y="470"
+                text-anchor="middle"
+                font-family="'Outfit', sans-serif"
+                font-size="8.5" font-weight="300"
+                fill="rgba(255,255,255,0.2)"
+                letter-spacing="9">STUDIO</text>
+
+              <!-- ── Futuristic data label ── -->
+              <text x="30"  y="455" font-family="'Outfit', sans-serif" font-size="7" fill="rgba(245,158,11,0.25)" letter-spacing="1">52.52°N</text>
+              <text x="370" y="455" text-anchor="end" font-family="'Outfit', sans-serif" font-size="7" fill="rgba(245,158,11,0.25)" letter-spacing="1">13.40°E</text>
+            </svg>
           </div>
           <div class="hero-badge">
             <span class="hero-badge-num">8+</span>
