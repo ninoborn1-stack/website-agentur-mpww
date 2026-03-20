@@ -1029,9 +1029,7 @@ main { padding-top: var(--nav-h); }
   object-fit: cover;
   object-position: center top;
   display: block;
-  mix-blend-mode: multiply;
 }
-[data-theme="dark"] .team-photo { background: #d8cfca; }
 
 .team-info h3 { font-size: 1.3rem; margin-bottom: 4px; }
 .team-role { font-size: 0.875rem; color: var(--accent); font-weight: 500; margin-bottom: 10px; }
