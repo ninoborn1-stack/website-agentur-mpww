@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="de" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Event buchen — FORMA Studio</title>
+  <meta name="description" content="Buche deinen Event-Slot an einem von sieben Veranstaltungsorten in Deutschland.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script>
+    (function () {
+      var t = localStorage.getItem('forma-theme') || 'dark';
+      document.documentElement.setAttribute('data-theme', t);
+    })();
+  </script>
+</head>
+<body>
+
+  <div id="site-header"></div>
+
+  <main>
+
+    <!-- ===== PAGE HERO ===== -->
+    <section class="page-hero">
+      <div class="container">
+        <span class="section-label" data-i18n="bk_label">Event Buchung</span>
+        <h1 data-i18n="bk_heading">Deinen Slot sichern.</h1>
+        <p class="page-hero-sub" data-i18n="bk_sub">
+          Wähle Veranstaltungsort, Datum und Uhrzeit für dein Event — wir prüfen die Verfügbarkeit und melden uns.
+        </p>
+      </div>
+    </section>
+
+    <!-- ===== BOOKING FORM ===== -->
+    <section class="section">
+      <div class="container">
+        <div style="max-width: 720px; margin: 0 auto;">
+
+          <div class="form-wrapper">
+
+            <form
+              id="booking-form"
+              action="https://formspree.io/f/[FORM-ID]"
+              method="POST"
+            >
+              <!-- Honeypot spam protection -->
+              <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
+              <input type="hidden" name="_subject" value="Neue Event-Buchungsanfrage — FORMA Studio">
+
+              <!-- Name + Email -->
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="bk-name" data-i18n="bk_form_name">Name</label>
+                  <input
+                    id="bk-name"
+                    type="text"
+                    name="name"
+                    data-i18n-ph="bk_form_name_ph"
+                    placeholder="Dein Name"
+                    required
+                  >
+                </div>
+                <div class="form-group">
+                  <label for="bk-email" data-i18n="bk_form_email">E-Mail-Adresse</label>
+                  <input
+                    id="bk-email"
+                    type="email"
+                    name="email"
+                    data-i18n-ph="bk_form_email_ph"
+                    placeholder="deine@email.de"
+                    required
+                  >
+                </div>
+              </div>
+
+              <!-- Location -->
+              <div class="form-group">
+                <label for="bk-location" data-i18n="bk_form_location">Veranstaltungsort</label>
+                <select id="bk-location" name="location" required>
+                  <option value="" data-i18n="bk_form_location_0">Bitte wählen...</option>
+                  <option value="berlin-spreehallen">Berlin — Spreehallen, Kreuzberg</option>
+                  <option value="hamburg-hafenklang">Hamburg — Hafenklang, St. Pauli</option>
+                  <option value="muenchen-tonhalle">München — Tonhalle, Maxvorstadt</option>
+                  <option value="frankfurt-metropolis">Frankfurt — Metropolis Halle, Sachsenhausen</option>
+                  <option value="koeln-carlswerk">Köln — Carlswerk, Mülheim</option>
+                  <option value="stuttgart-theaterhaus">Stuttgart — Theaterhaus, Nord</option>
+                  <option value="duesseldorf-central">Düsseldorf — Central, Derendorf</option>
+                </select>
+              </div>
+
+              <!-- Date range -->
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="bk-date-from" data-i18n="bk_form_date_from">Datum von</label>
+                  <input
+                    id="bk-date-from"
+                    type="date"
+                    name="date_from"
+                    required
+                  >
+                </div>
+                <div class="form-group">
+                  <label for="bk-date-to" data-i18n="bk_form_date_to">Datum bis</label>
+                  <input
+                    id="bk-date-to"
+                    type="date"
+                    name="date_to"
+                    required
+                  >
+                </div>
+              </div>
+
+              <!-- Time range -->
+              <div class="form-row">
+                <div class="form-group">
+                  <label for="bk-time-from" data-i18n="bk_form_time_from">Uhrzeit von</label>
+                  <input
+                    id="bk-time-from"
+                    type="time"
+                    name="time_from"
+                    required
+                  >
+                </div>
+                <div class="form-group">
+                  <label for="bk-time-to" data-i18n="bk_form_time_to">Uhrzeit bis</label>
+                  <input
+                    id="bk-time-to"
+                    type="time"
+                    name="time_to"
+                    required
+                  >
+                </div>
+              </div>
+
+              <!-- Notes -->
+              <div class="form-group">
+                <label for="bk-notes" data-i18n="bk_form_notes">Anmerkungen</label>
+                <textarea
+                  id="bk-notes"
+                  name="notes"
+                  data-i18n-ph="bk_form_notes_ph"
+                  placeholder="Weitere Infos oder Wünsche (optional)"
+                ></textarea>
+              </div>
+
+              <button type="submit" class="btn btn--primary form-submit">
+                <span data-i18n="bk_form_submit">Buchungsanfrage senden</span>
+                <i data-lucide="calendar-check"></i>
+              </button>
+
+            </form>
+
+            <!-- Success state -->
+            <div id="booking-success" class="form-success">
+              <div class="form-success-icon">
+                <i data-lucide="check"></i>
+              </div>
+              <h3 data-i18n="bk_success_title">Anfrage erhalten.</h3>
+              <p data-i18n="bk_success_msg">Wir prüfen deinen Wunschtermin und melden uns innerhalb von 24 Stunden.</p>
+            </div>
+
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <div id="site-footer"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/lucide@latest/dist/umd/lucide.min.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>

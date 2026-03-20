@@ -12,6 +12,7 @@ const i18nData = {
     nav_work:     'Projekte',
     nav_blog:     'Blog',
     nav_contact:  'Kontakt',
+    nav_book:     'Buchen',
 
     /* Footer */
     footer_tagline:       'Wir gestalten Marken, die bewegen.',
@@ -257,6 +258,26 @@ const i18nData = {
 
     ct_success_title: 'Nachricht erhalten.',
     ct_success_msg:   'Vielen Dank! Wir melden uns in der Regel innerhalb von 24 Stunden bei dir.',
+
+    /* Booking page */
+    bk_label:          'Event Buchung',
+    bk_heading:        'Deinen Slot sichern.',
+    bk_sub:            'Wähle Veranstaltungsort, Datum und Uhrzeit für dein Event — wir prüfen die Verfügbarkeit und melden uns.',
+    bk_form_name:      'Name',
+    bk_form_name_ph:   'Dein Name',
+    bk_form_email:     'E-Mail-Adresse',
+    bk_form_email_ph:  'deine@email.de',
+    bk_form_location:  'Veranstaltungsort',
+    bk_form_location_0:'Bitte wählen...',
+    bk_form_date_from: 'Datum von',
+    bk_form_date_to:   'Datum bis',
+    bk_form_time_from: 'Uhrzeit von',
+    bk_form_time_to:   'Uhrzeit bis',
+    bk_form_notes:     'Anmerkungen',
+    bk_form_notes_ph:  'Weitere Infos oder Wünsche (optional)',
+    bk_form_submit:    'Buchungsanfrage senden',
+    bk_success_title:  'Anfrage erhalten.',
+    bk_success_msg:    'Wir prüfen deinen Wunschtermin und melden uns innerhalb von 24 Stunden.',
   },
 
   en: {
@@ -267,6 +288,7 @@ const i18nData = {
     nav_work:     'Work',
     nav_blog:     'Blog',
     nav_contact:  'Contact',
+    nav_book:     'Book',
 
     /* Footer */
     footer_tagline:       'We shape brands that move.',
@@ -511,6 +533,26 @@ const i18nData = {
 
     ct_success_title: 'Message received.',
     ct_success_msg:   'Thank you! We typically respond within 24 hours.',
+
+    /* Booking page */
+    bk_label:          'Event Booking',
+    bk_heading:        'Secure your slot.',
+    bk_sub:            'Choose your preferred venue, date and time for your event — we\'ll check availability and get back to you.',
+    bk_form_name:      'Name',
+    bk_form_name_ph:   'Your name',
+    bk_form_email:     'Email address',
+    bk_form_email_ph:  'your@email.com',
+    bk_form_location:  'Venue',
+    bk_form_location_0:'Please select...',
+    bk_form_date_from: 'Date from',
+    bk_form_date_to:   'Date to',
+    bk_form_time_from: 'Time from',
+    bk_form_time_to:   'Time to',
+    bk_form_notes:     'Notes',
+    bk_form_notes_ph:  'Additional info or requests (optional)',
+    bk_form_submit:    'Send booking request',
+    bk_success_title:  'Request received.',
+    bk_success_msg:    'We\'ll review your preferred slot and get back to you within 24 hours.',
   }
 };
 
@@ -694,6 +736,7 @@ function injectHeader() {
           <li><a href="work.html"     data-i18n="nav_work">Projekte</a></li>
           <li><a href="blog.html"     data-i18n="nav_blog">Blog</a></li>
           <li><a href="contact.html"  data-i18n="nav_contact">Kontakt</a></li>
+          <li><a href="booking.html"  data-i18n="nav_book" class="nav-link-book">Buchen</a></li>
         </ul>
         <div class="nav-controls">
           <div class="lang-toggle">
@@ -719,6 +762,7 @@ function injectHeader() {
         <li><a href="work.html"     data-i18n="nav_work">Projekte</a></li>
         <li><a href="blog.html"     data-i18n="nav_blog">Blog</a></li>
         <li><a href="contact.html"  data-i18n="nav_contact">Kontakt</a></li>
+        <li><a href="booking.html"  data-i18n="nav_book">Buchen</a></li>
       </ul>
     </div>
   `;
@@ -967,6 +1011,40 @@ function setupContactForm() {
   });
 }
 
+/* === BOOKING FORM HANDLER === */
+function setupBookingForm() {
+  const form = document.getElementById('booking-form');
+  if (!form) return;
+
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const btn     = form.querySelector('.form-submit');
+    const success = document.getElementById('booking-success');
+
+    btn.textContent = '...';
+    btn.disabled    = true;
+
+    try {
+      const response = await fetch(form.action, {
+        method:  'POST',
+        body:    new FormData(form),
+        headers: { Accept: 'application/json' },
+      });
+
+      if (response.ok) {
+        form.style.display = 'none';
+        if (success) success.classList.add('visible');
+      } else {
+        btn.textContent = currentLang === 'de' ? 'Fehler — bitte erneut versuchen.' : 'Error — please try again.';
+        btn.disabled    = false;
+      }
+    } catch {
+      btn.textContent = currentLang === 'de' ? 'Fehler — bitte erneut versuchen.' : 'Error — please try again.';
+      btn.disabled    = false;
+    }
+  });
+}
+
 /* === INIT === */
 document.addEventListener('DOMContentLoaded', () => {
   injectHeader();
@@ -983,6 +1061,7 @@ document.addEventListener('DOMContentLoaded', () => {
   setupScrollReveal();
   setupWorkFilter();
   setupContactForm();
+  setupBookingForm();
 
   /* Blog page */
   const blogGrid = document.getElementById('blog-grid');
