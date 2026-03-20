@@ -60,26 +60,10 @@
                   <stop offset="0%"   stop-color="rgba(245,158,11,0.1)"/>
                   <stop offset="100%" stop-color="rgba(245,158,11,0)"/>
                 </radialGradient>
-                <!-- FORMA shimmer: narrow light beam sweeping L→R, clipped to letters -->
-                <linearGradient id="fshimmer" gradientUnits="userSpaceOnUse" x1="-70" y1="0" x2="60" y2="0">
-                  <stop offset="0%"   stop-color="rgba(245,158,11,0)"/>
-                  <stop offset="45%"  stop-color="rgba(255,218,90,0.75)"/>
-                  <stop offset="100%" stop-color="rgba(245,158,11,0)"/>
-                  <animate attributeName="x1"
-                    values="-70;400;400;-70" keyTimes="0;0.52;0.99;1"
-                    dur="6s" repeatCount="indefinite" calcMode="spline"
-                    keySplines="0.42 0 0.58 1;0 0 1 1;0 0 1 1"/>
-                  <animate attributeName="x2"
-                    values="60;530;530;60"  keyTimes="0;0.52;0.99;1"
-                    dur="6s" repeatCount="indefinite" calcMode="spline"
-                    keySplines="0.42 0 0.58 1;0 0 1 1;0 0 1 1"/>
-                </linearGradient>
-                <!-- ClipPath: restricts shimmer to exact FORMA letter outlines -->
-                <clipPath id="forma-clip">
-                  <text x="200" y="370" text-anchor="middle"
-                    font-family="'Cormorant Garamond', serif"
-                    font-size="94" font-weight="600" letter-spacing="-3">FORMA</text>
-                </clipPath>
+                <!-- Gaussian blur filter for FORMA glow -->
+                <filter id="fglow" x="-15%" y="-15%" width="130%" height="130%">
+                  <feGaussianBlur in="SourceGraphic" stdDeviation="6"/>
+                </filter>
               </defs>
 
               <!-- Grid fill -->
@@ -108,10 +92,15 @@
                 font-size="94" font-weight="600"
                 fill="rgba(245,158,11,0.19)"
                 letter-spacing="-3">FORMA</text>
-              <!-- Shimmer overlay clipped to letter shapes — light glint that sweeps across -->
-              <rect x="70" y="276" width="260" height="98"
-                fill="url(#fshimmer)"
-                clip-path="url(#forma-clip)"/>
+              <!-- FORMA glow: blurred duplicate that pulses — simple, reliable, elegant -->
+              <text class="hero-wm-glow"
+                x="200" y="370"
+                text-anchor="middle"
+                font-family="'Cormorant Garamond', serif"
+                font-size="94" font-weight="600"
+                fill="rgba(245,158,11,0.55)"
+                letter-spacing="-3"
+                filter="url(#fglow)">FORMA</text>
 
               <!-- ── Mid dashed ring — CW ── -->
               <circle class="hero-ring-mid" cx="200" cy="222" r="110" fill="none" stroke="rgba(245,158,11,0.11)" stroke-width="1" stroke-dasharray="5 10"/>
@@ -132,27 +121,53 @@
               <circle class="hero-node-a" cx="200" cy="332" r="5.5" fill="rgba(245,158,11,0.18)" stroke="rgba(245,158,11,0.72)" stroke-width="1.5"/>
               <circle class="hero-node-b" cx="90"  cy="222" r="5.5" fill="rgba(255,255,255,0.07)" stroke="rgba(255,255,255,0.38)" stroke-width="1.5"/>
 
-              <!-- ── 3-D Rhombus — rotates around its own vertical axis ── -->
+              <!-- ── 3-D Gem — brilliant-cut diamond body, rotates on Y-axis ── -->
+              <!--   Apex(200,172) → Girdle(156,210 / 244,210) → Culet(200,278)   -->
               <g class="hero-diamond-3d">
-                <!-- Outer diamond (4 cardinal points) -->
-                <polygon
-                  points="200,178 246,222 200,266 154,222"
-                  fill="rgba(245,158,11,0.055)"
-                  stroke="rgba(245,158,11,0.38)"
+                <!-- === Facet fills (back → front, asymmetric for directional light) === -->
+                <!-- Left crown facet  : lit side, brighter -->
+                <polygon points="200,172 156,210 200,210"
+                  fill="rgba(245,158,11,0.18)" stroke="none"/>
+                <!-- Right crown facet : shadow side -->
+                <polygon points="200,172 200,210 244,210"
+                  fill="rgba(245,158,11,0.07)" stroke="none"/>
+                <!-- Left pavilion facet -->
+                <polygon points="156,210 200,278 200,210"
+                  fill="rgba(245,158,11,0.12)" stroke="none"/>
+                <!-- Right pavilion facet -->
+                <polygon points="200,210 200,278 244,210"
+                  fill="rgba(245,158,11,0.04)" stroke="none"/>
+
+                <!-- === Outer silhouette === -->
+                <polygon points="200,172 244,210 200,278 156,210"
+                  fill="none"
+                  stroke="rgba(245,158,11,0.46)"
                   stroke-width="1.5"
                   stroke-linejoin="round"/>
-                <!-- Inner diamond -->
-                <polygon
-                  points="200,194 232,222 200,250 168,222"
-                  fill="none"
-                  stroke="rgba(245,158,11,0.16)"
-                  stroke-width="1"
-                  stroke-linejoin="round"/>
-                <!-- Highlight facet (top half, brighter) -->
-                <polygon
-                  points="200,178 246,222 200,222 154,222"
-                  fill="rgba(245,158,11,0.06)"
-                  stroke="none"/>
+
+                <!-- === Interior facet line structure === -->
+                <!-- Girdle (widest horizontal) -->
+                <line x1="156" y1="210" x2="244" y2="210"
+                  stroke="rgba(245,158,11,0.28)" stroke-width="0.75"/>
+                <!-- Vertical median (apex → culet) -->
+                <line x1="200" y1="172" x2="200" y2="278"
+                  stroke="rgba(245,158,11,0.22)" stroke-width="0.75"/>
+                <!-- Table cut (flat top facet) -->
+                <line x1="185" y1="181" x2="215" y2="181"
+                  stroke="rgba(245,158,11,0.42)" stroke-width="1" stroke-linecap="round"/>
+                <!-- Crown star lines (table corners → girdle) -->
+                <line x1="185" y1="181" x2="156" y2="210"
+                  stroke="rgba(245,158,11,0.14)" stroke-width="0.75"/>
+                <line x1="215" y1="181" x2="244" y2="210"
+                  stroke="rgba(245,158,11,0.14)" stroke-width="0.75"/>
+                <!-- Crown star lines (table corners → apex) -->
+                <line x1="185" y1="181" x2="200" y2="172"
+                  stroke="rgba(245,158,11,0.14)" stroke-width="0.75"/>
+                <line x1="215" y1="181" x2="200" y2="172"
+                  stroke="rgba(245,158,11,0.14)" stroke-width="0.75"/>
+
+                <!-- Girdle centre dot (marks intersection) -->
+                <circle cx="200" cy="210" r="2" fill="rgba(245,158,11,0.65)"/>
               </g>
 
               <!-- ── Inner fast ring (CCW) ── -->
