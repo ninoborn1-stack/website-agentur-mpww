@@ -216,7 +216,7 @@ const i18nData = {
 
     /* Blog page */
     bl_label:   'Blog',
-    bl_heading: 'Gedanken zu Design & Marke.',
+    bl_heading: 'Gedanken zu Design und Marke.',
     bl_sub:     'Einblicke, Perspektiven und Erkenntnisse aus unserer täglichen Arbeit.',
 
     read_more: 'Weiterlesen',
@@ -470,7 +470,7 @@ const i18nData = {
 
     /* Blog page */
     bl_label:   'Blog',
-    bl_heading: 'Thoughts on design & brand.',
+    bl_heading: 'Thoughts on design and brand.',
     bl_sub:     'Insights, perspectives and findings from our daily work.',
 
     read_more: 'Read more',
@@ -556,6 +556,79 @@ const blogPosts = [
     readTime: 6,
   },
 ];
+
+/* === BLOG VISUAL SVGs === */
+function getBlogVisualSVG(visual) {
+  const bk = `
+    <path d="M12 8 L34 8 L34 22" fill="none" stroke="rgba(245,158,11,0.44)" stroke-width="1.5" stroke-linecap="round"/>
+    <path d="M388 8 L366 8 L366 22" fill="none" stroke="rgba(245,158,11,0.44)" stroke-width="1.5" stroke-linecap="round"/>
+    <path d="M12 217 L34 217 L34 203" fill="none" stroke="rgba(245,158,11,0.44)" stroke-width="1.5" stroke-linecap="round"/>
+    <path d="M388 217 L366 217 L366 203" fill="none" stroke="rgba(245,158,11,0.44)" stroke-width="1.5" stroke-linecap="round"/>`;
+
+  if (visual === 'blog-visual--1') {
+    return `<svg class="blog-svg" viewBox="0 0 400 225" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <defs><pattern id="bvg1" width="28" height="28" patternUnits="userSpaceOnUse"><path d="M28 0 L0 0 L0 28" fill="none" stroke="rgba(255,255,255,0.04)" stroke-width="1"/></pattern></defs>
+      <rect width="400" height="225" fill="url(#bvg1)"/>
+      ${bk}
+      <rect class="bv1-outer" x="100" y="56.5" width="200" height="112" rx="2" fill="rgba(245,158,11,0.03)" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+      <rect class="bv1-mid"   x="130" y="73.5"  width="140" height="78"  rx="2" fill="rgba(245,158,11,0.04)" stroke="rgba(245,158,11,0.2)" stroke-width="1.2"/>
+      <rect class="bv1-glow"  x="159" y="89.5"  width="82"  height="46"  rx="2" fill="rgba(245,158,11,0.07)" stroke="rgba(245,158,11,0.45)" stroke-width="1.5"/>
+      <circle class="bv1-dot" cx="200" cy="112.5" r="4"   fill="rgba(245,158,11,0.25)" stroke="#F59E0B" stroke-width="1.5"/>
+      <circle                  cx="200" cy="112.5" r="1.5" fill="#F59E0B"/>
+      <text x="380" y="20" text-anchor="end"    font-family="'Outfit',sans-serif" font-size="7"   fill="rgba(245,158,11,0.28)" letter-spacing="1">01</text>
+      <text x="200" y="218" text-anchor="middle" font-family="'Outfit',sans-serif" font-size="6" fill="rgba(255,255,255,0.15)" letter-spacing="6">BRAND IDENTITY</text>
+    </svg>`;
+  }
+
+  if (visual === 'blog-visual--2') {
+    return `<svg class="blog-svg" viewBox="0 0 400 225" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <defs><pattern id="bvg2" width="24" height="24" patternUnits="userSpaceOnUse"><path d="M24 0 L0 0 L0 24" fill="none" stroke="rgba(255,255,255,0.04)" stroke-width="1"/></pattern></defs>
+      <rect width="400" height="225" fill="url(#bvg2)"/>
+      ${bk}
+      <rect x="30" y="18" width="340" height="188" rx="4" fill="none" stroke="rgba(255,255,255,0.1)" stroke-width="1"/>
+      <rect x="30" y="18" width="340" height="26"  rx="4" fill="rgba(255,255,255,0.04)"/>
+      <line x1="30" y1="44" x2="370" y2="44" stroke="rgba(255,255,255,0.07)" stroke-width="1"/>
+      <circle cx="47" cy="31" r="4" fill="rgba(255,255,255,0.14)"/>
+      <circle cx="61" cy="31" r="4" fill="rgba(255,255,255,0.08)"/>
+      <circle cx="75" cy="31" r="4" fill="rgba(255,255,255,0.08)"/>
+      <rect x="94" y="24" width="184" height="14" rx="7" fill="rgba(255,255,255,0.06)"/>
+      <rect x="46" y="54" width="308" height="10" rx="2" fill="rgba(255,255,255,0.06)"/>
+      <rect class="bv2-focus" x="46" y="74" width="192" height="88" rx="2" fill="rgba(245,158,11,0.05)" stroke="rgba(245,158,11,0.4)" stroke-width="1.5"/>
+      <rect x="60" y="90"  width="110" height="6" rx="2" fill="rgba(255,255,255,0.1)"/>
+      <rect x="60" y="104" width="76"  height="4" rx="2" fill="rgba(255,255,255,0.06)"/>
+      <rect x="60" y="116" width="92"  height="4" rx="2" fill="rgba(255,255,255,0.06)"/>
+      <rect x="60" y="128" width="58"  height="4" rx="2" fill="rgba(255,255,255,0.06)"/>
+      <rect class="bv2-cursor" x="246" y="88" width="1.5" height="14" rx="1" fill="rgba(245,158,11,0.75)"/>
+      <rect x="250" y="74"  width="110" height="42" rx="2" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+      <rect x="250" y="122" width="110" height="40" rx="2" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+      <rect x="46"  y="172" width="86"  height="20" rx="2" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.07)" stroke-width="1"/>
+      <rect x="144" y="172" width="86"  height="20" rx="2" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.07)" stroke-width="1"/>
+      <rect x="242" y="172" width="118" height="20" rx="2" fill="rgba(255,255,255,0.04)" stroke="rgba(255,255,255,0.07)" stroke-width="1"/>
+      <text x="380" y="20"  text-anchor="end"    font-family="'Outfit',sans-serif" font-size="7" fill="rgba(245,158,11,0.28)" letter-spacing="1">02</text>
+      <text x="200" y="218" text-anchor="middle" font-family="'Outfit',sans-serif" font-size="6" fill="rgba(255,255,255,0.15)" letter-spacing="6">WEB DESIGN</text>
+    </svg>`;
+  }
+
+  /* blog-visual--3 — Strategie */
+  return `<svg class="blog-svg" viewBox="0 0 400 225" preserveAspectRatio="xMidYMid slice" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+    <defs><pattern id="bvg3" width="28" height="28" patternUnits="userSpaceOnUse"><path d="M28 0 L0 0 L0 28" fill="none" stroke="rgba(255,255,255,0.035)" stroke-width="1"/></pattern></defs>
+    <rect width="400" height="225" fill="url(#bvg3)"/>
+    ${bk}
+    <polygon class="bv3-l3" points="74,172 326,172 356,208 44,208"  fill="rgba(245,158,11,0.06)"/>
+    <polygon class="bv3-l2" points="111,128 289,128 326,172 74,172" fill="rgba(245,158,11,0.1)"/>
+    <polygon class="bv3-l1" points="200,22 289,128 111,128"         fill="rgba(245,158,11,0.18)"/>
+    <polygon points="200,22 356,208 44,208" fill="none" stroke="rgba(245,158,11,0.35)" stroke-width="1.5" stroke-linejoin="round"/>
+    <line x1="111" y1="128" x2="289" y2="128" stroke="rgba(245,158,11,0.22)" stroke-width="1"/>
+    <line x1="74"  y1="172" x2="326" y2="172" stroke="rgba(245,158,11,0.18)" stroke-width="1"/>
+    <circle class="bv3-apex" cx="200" cy="22" r="5"   fill="rgba(245,158,11,0.3)" stroke="#F59E0B" stroke-width="1.5"/>
+    <circle                   cx="200" cy="22" r="2"   fill="#F59E0B"/>
+    <text x="200" y="80"  text-anchor="middle" font-family="'Outfit',sans-serif" font-size="7" fill="rgba(255,255,255,0.22)" letter-spacing="2">VISION</text>
+    <text x="200" y="154" text-anchor="middle" font-family="'Outfit',sans-serif" font-size="7" fill="rgba(255,255,255,0.18)" letter-spacing="2">STRATEGIE</text>
+    <text x="200" y="194" text-anchor="middle" font-family="'Outfit',sans-serif" font-size="7" fill="rgba(255,255,255,0.14)" letter-spacing="2">EXECUTION</text>
+    <text x="380" y="20"  text-anchor="end"    font-family="'Outfit',sans-serif" font-size="7" fill="rgba(245,158,11,0.28)" letter-spacing="1">03</text>
+    <text x="200" y="218" text-anchor="middle" font-family="'Outfit',sans-serif" font-size="6" fill="rgba(255,255,255,0.15)" letter-spacing="6">STRATEGIE</text>
+  </svg>`;
+}
 
 /* === STATE === */
 let currentLang  = localStorage.getItem('forma-lang')  || 'de';
@@ -831,7 +904,7 @@ function renderBlogCards(lang) {
       <article class="blog-card reveal">
         <a href="${post.slug}">
           <div class="blog-card-image">
-            <div class="blog-visual ${post.visual}"></div>
+            <div class="blog-visual ${post.visual}">${getBlogVisualSVG(post.visual)}</div>
           </div>
         </a>
         <div class="blog-card-body">
