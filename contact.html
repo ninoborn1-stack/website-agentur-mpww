@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="de" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Kontakt — FORMA Studio</title>
+  <meta name="description" content="Schreib uns — wir freuen uns auf dein Projekt, deine Idee oder deine Herausforderung.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script>
+    (function () {
+      var t = localStorage.getItem('forma-theme') || 'dark';
+      document.documentElement.setAttribute('data-theme', t);
+    })();
+  </script>
+</head>
+<body>
+
+  <div id="site-header"></div>
+
+  <main>
+
+    <!-- ===== PAGE HERO ===== -->
+    <section class="page-hero">
+      <div class="container">
+        <span class="section-label" data-i18n="ct_label">Kontakt</span>
+        <h1 data-i18n="ct_heading">Lass uns sprechen.</h1>
+        <p class="page-hero-sub" data-i18n="ct_sub">Hast du ein Projekt? Eine Idee? Eine Herausforderung? Wir freuen uns, von dir zu hören.</p>
+      </div>
+    </section>
+
+    <!-- ===== CONTACT SECTION ===== -->
+    <section class="section">
+      <div class="container">
+        <div class="contact-grid">
+
+          <!-- Contact Info -->
+          <div class="contact-info reveal">
+
+            <h2 data-i18n="ct_info_heading">Wir sind für dich da.</h2>
+            <p data-i18n="ct_info_desc">
+              Egal ob du ein konkretes Briefing hast oder erst mal ein erstes Gespräch führen möchtest — meld dich einfach.
+            </p>
+
+            <div class="contact-item">
+              <div class="contact-item-icon">
+                <i data-lucide="map-pin"></i>
+              </div>
+              <div class="contact-item-text">
+                <strong data-i18n="ct_addr_label">Adresse</strong>
+                <span data-i18n="ct_addr_val">Rosenthaler Str. 40, 10178 Berlin</span>
+              </div>
+            </div>
+
+            <div class="contact-item">
+              <div class="contact-item-icon">
+                <i data-lucide="mail"></i>
+              </div>
+              <div class="contact-item-text">
+                <strong data-i18n="ct_email_label">E-Mail</strong>
+                <span><a href="mailto:hello@forma-studio.de" data-i18n="ct_email_val">hello@forma-studio.de</a></span>
+              </div>
+            </div>
+
+            <div class="contact-item">
+              <div class="contact-item-icon">
+                <i data-lucide="phone"></i>
+              </div>
+              <div class="contact-item-text">
+                <strong data-i18n="ct_phone_label">Telefon</strong>
+                <span><a href="tel:+493012345678" data-i18n="ct_phone_val">+49 30 12345678</a></span>
+              </div>
+            </div>
+
+            <!-- Social -->
+            <div style="margin-top: 48px;">
+              <div class="footer-social">
+                <a href="#" aria-label="Instagram"><i data-lucide="instagram"></i></a>
+                <a href="#" aria-label="LinkedIn"><i data-lucide="linkedin"></i></a>
+                <a href="#" aria-label="Twitter"><i data-lucide="twitter"></i></a>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Contact Form -->
+          <div class="reveal reveal-delay-2">
+            <div class="form-wrapper">
+
+              <!-- The form (swap [FORM-ID] with your Formspree form ID) -->
+              <form
+                id="contact-form"
+                action="https://formspree.io/f/[FORM-ID]"
+                method="POST"
+              >
+                <!-- Honeypot spam protection -->
+                <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
+
+                <div class="form-row">
+                  <div class="form-group">
+                    <label for="name" data-i18n="ct_form_name">Name</label>
+                    <input
+                      id="name"
+                      type="text"
+                      name="name"
+                      data-i18n-ph="ct_form_name_ph"
+                      placeholder="Dein Name"
+                      required
+                    >
+                  </div>
+                  <div class="form-group">
+                    <label for="company" data-i18n="ct_form_company">Unternehmen</label>
+                    <input
+                      id="company"
+                      type="text"
+                      name="company"
+                      data-i18n-ph="ct_form_company_ph"
+                      placeholder="Firmenname (optional)"
+                    >
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="email" data-i18n="ct_form_email">E-Mail-Adresse</label>
+                  <input
+                    id="email"
+                    type="email"
+                    name="email"
+                    data-i18n-ph="ct_form_email_ph"
+                    placeholder="deine@email.de"
+                    required
+                  >
+                </div>
+
+                <div class="form-group">
+                  <label for="service" data-i18n="ct_form_service">Gesuchte Leistung</label>
+                  <select id="service" name="service">
+                    <option value="" data-i18n="ct_form_service_0">Bitte wählen...</option>
+                    <option value="brand-strategy" data-i18n="ct_form_service_1">Brand Strategy</option>
+                    <option value="visual-identity" data-i18n="ct_form_service_2">Visual Identity</option>
+                    <option value="web-design" data-i18n="ct_form_service_3">Web Design</option>
+                    <option value="campaign-design" data-i18n="ct_form_service_4">Campaign Design</option>
+                    <option value="motion" data-i18n="ct_form_service_5">Motion & Interaction</option>
+                    <option value="unsure" data-i18n="ct_form_service_6">Ich bin mir noch nicht sicher</option>
+                  </select>
+                </div>
+
+                <div class="form-group">
+                  <label for="message" data-i18n="ct_form_message">Deine Nachricht</label>
+                  <textarea
+                    id="message"
+                    name="message"
+                    data-i18n-ph="ct_form_message_ph"
+                    placeholder="Beschreib kurz dein Projekt oder deine Frage ..."
+                    required
+                  ></textarea>
+                </div>
+
+                <button type="submit" class="btn btn--primary form-submit">
+                  <span data-i18n="ct_form_submit">Nachricht senden</span>
+                  <i data-lucide="send"></i>
+                </button>
+
+              </form>
+
+              <!-- Success state -->
+              <div id="form-success" class="form-success">
+                <div class="form-success-icon">
+                  <i data-lucide="check"></i>
+                </div>
+                <h3 data-i18n="ct_success_title">Nachricht erhalten.</h3>
+                <p data-i18n="ct_success_msg">Vielen Dank! Wir melden uns in der Regel innerhalb von 24 Stunden bei dir.</p>
+              </div>
+
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <div id="site-footer"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/lucide@latest/dist/umd/lucide.min.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>

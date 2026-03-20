@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="de" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FORMA Studio — Kreativagentur Berlin</title>
+  <meta name="description" content="FORMA Studio ist eine Kreativagentur aus Berlin. Wir gestalten Marken, die bewegen — von Brand Strategy bis Web Design.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <!-- Prevent flash of wrong theme -->
+  <script>
+    (function () {
+      var t = localStorage.getItem('forma-theme') || 'dark';
+      document.documentElement.setAttribute('data-theme', t);
+    })();
+  </script>
+</head>
+<body>
+
+  <!-- Header injected by main.js -->
+  <div id="site-header"></div>
+
+  <main>
+
+    <!-- ===== HERO ===== -->
+    <section class="hero">
+      <div class="hero-inner">
+
+        <div class="hero-content">
+          <p class="hero-label" data-i18n="hero_label">Kreativagentur Berlin</p>
+          <h1>
+            <span data-i18n="hero_h1_a">Wir gestalten Marken,</span><br>
+            <em data-i18n="hero_h1_b">die bewegen.</em>
+          </h1>
+          <p class="hero-sub" data-i18n="hero_sub">
+            Von der ersten Idee bis zur konsequenten Wirkung — strategisch, visuell, unverwechselbar.
+          </p>
+          <div class="hero-actions">
+            <a href="work.html" class="btn btn--primary">
+              <span data-i18n="hero_cta1">Unsere Projekte</span>
+              <i data-lucide="arrow-right"></i>
+            </a>
+            <a href="contact.html" class="btn btn--secondary" data-i18n="hero_cta2">Kontakt aufnehmen</a>
+          </div>
+        </div>
+
+        <div class="hero-visual">
+          <div class="hero-image-frame">
+            <div class="hero-canvas">
+              <div class="hero-canvas-grid"></div>
+              <div class="hero-canvas-circle">
+                <div class="hero-canvas-circle-inner"></div>
+                <div class="hero-canvas-dot"></div>
+              </div>
+              <div class="hero-canvas-rect"></div>
+              <div class="hero-canvas-line"></div>
+              <div class="hero-canvas-wordmark">FORMA</div>
+            </div>
+          </div>
+          <div class="hero-badge">
+            <span class="hero-badge-num">8+</span>
+            <div class="hero-badge-text" data-i18n="hero_badge">Jahre Erfahrung</div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ===== SERVICES TEASER ===== -->
+    <section class="section section--alt" id="services-teaser">
+      <div class="container">
+
+        <div class="section-header reveal">
+          <span class="section-label" data-i18n="sv_label">Was wir tun</span>
+          <h2 data-i18n="sv_heading">Leistungen, die Wirkung erzeugen.</h2>
+          <p class="section-desc" data-i18n="sv_desc">
+            Wir denken in Systemen, nicht in Einzellösungen — von der Strategie bis zur letzten Pixel.
+          </p>
+        </div>
+
+        <div class="grid-3 reveal-stagger">
+
+          <div class="service-card">
+            <div class="service-icon"><i data-lucide="target"></i></div>
+            <h3 data-i18n="s1_title">Brand Strategy</h3>
+            <p data-i18n="s1_desc">Positionierung, Naming und Messaging, die deine Marke einzigartig und unvergesslich machen.</p>
+          </div>
+
+          <div class="service-card">
+            <div class="service-icon"><i data-lucide="layers"></i></div>
+            <h3 data-i18n="s2_title">Visual Identity</h3>
+            <p data-i18n="s2_desc">Logo, Farbe, Typografie und Design System — ein kohärentes visuelles Fundament.</p>
+          </div>
+
+          <div class="service-card">
+            <div class="service-icon"><i data-lucide="monitor"></i></div>
+            <h3 data-i18n="s3_title">Web Design</h3>
+            <p data-i18n="s3_desc">Websites, die nicht nur schön aussehen, sondern konvertieren und begeistern.</p>
+          </div>
+
+          <div class="service-card">
+            <div class="service-icon"><i data-lucide="image"></i></div>
+            <h3 data-i18n="s4_title">Campaign Design</h3>
+            <p data-i18n="s4_desc">Print, Digital, Social — Kampagnen mit visueller Schlagkraft und klarer Botschaft.</p>
+          </div>
+
+          <div class="service-card">
+            <div class="service-icon"><i data-lucide="zap"></i></div>
+            <h3 data-i18n="s5_title">Motion & Interaction</h3>
+            <p data-i18n="s5_desc">Animation und Microinteractions, die deine Marke zum Leben erwecken.</p>
+          </div>
+
+          <div class="service-card">
+            <div class="service-icon"><i data-lucide="pen-line"></i></div>
+            <h3 data-i18n="s6_title">Content Direction</h3>
+            <p data-i18n="s6_desc">Bildkonzept, Art Direction und Copywriting-Briefings für konsistente Kommunikation.</p>
+          </div>
+
+        </div>
+
+        <div style="margin-top: 48px;" class="reveal">
+          <a href="services.html" class="btn btn--ghost">
+            <span data-i18n="sv_cta">Alle Leistungen</span>
+            <i data-lucide="arrow-right"></i>
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ===== SELECTED WORK ===== -->
+    <section class="section" id="selected-work">
+      <div class="container">
+
+        <div class="section-header reveal" style="display:flex; justify-content:space-between; align-items:flex-end; max-width:100%;">
+          <div>
+            <span class="section-label" data-i18n="work_label">Ausgewählte Projekte</span>
+            <h2 data-i18n="work_heading">Arbeit, auf die wir stolz sind.</h2>
+            <p class="section-desc" style="max-width:480px;" data-i18n="work_desc">
+              Jedes Projekt ist eine Partnerschaft — mit echten Herausforderungen und messbaren Ergebnissen.
+            </p>
+          </div>
+          <a href="work.html" class="btn btn--secondary" style="flex-shrink:0;" data-i18n="work_cta">Alle Projekte</a>
+        </div>
+
+        <div class="grid-3 reveal-stagger">
+
+          <!-- Project 1 -->
+          <article class="project-card">
+            <div class="project-card-image">
+              <div class="proj-visual proj-visual--1">
+                <div class="proj-visual-accent"></div>
+                <span class="proj-visual-label">H&W</span>
+              </div>
+              <div class="project-card-overlay">
+                <a href="work.html" class="btn btn--secondary" data-i18n="view_project">Projekt ansehen</a>
+              </div>
+            </div>
+            <div class="project-card-body">
+              <p class="project-card-category" data-i18n="p1_cat">Brand Identity</p>
+              <h3 data-i18n="p1_title">Hartmann & Wolf</h3>
+              <p data-i18n="p1_desc">Markenrelaunch für eine Berliner Boutique-Kanzlei — von traditionell zu elegant-modern.</p>
+              <div class="project-card-footer">
+                <div class="project-tags">
+                  <span class="tag">Branding</span>
+                  <span class="tag">Identity</span>
+                </div>
+                <a href="work.html" class="btn btn--ghost" style="padding:8px 0;">
+                  <i data-lucide="arrow-right"></i>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project 2 -->
+          <article class="project-card">
+            <div class="project-card-image">
+              <div class="proj-visual proj-visual--2">
+                <div class="proj-visual-accent"></div>
+                <span class="proj-visual-label">Velta</span>
+              </div>
+              <div class="project-card-overlay">
+                <a href="work.html" class="btn btn--secondary" data-i18n="view_project">Projekt ansehen</a>
+              </div>
+            </div>
+            <div class="project-card-body">
+              <p class="project-card-category" data-i18n="p2_cat">Packaging & Identity</p>
+              <h3 data-i18n="p2_title">Velta Foods</h3>
+              <p data-i18n="p2_desc">Visuelle Identität und Packaging-System für ein wachsendes Bio-Start-up.</p>
+              <div class="project-card-footer">
+                <div class="project-tags">
+                  <span class="tag">Packaging</span>
+                  <span class="tag">Identity</span>
+                </div>
+                <a href="work.html" class="btn btn--ghost" style="padding:8px 0;">
+                  <i data-lucide="arrow-right"></i>
+                </a>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project 3 -->
+          <article class="project-card">
+            <div class="project-card-image">
+              <div class="proj-visual proj-visual--4">
+                <div class="proj-visual-accent"></div>
+                <span class="proj-visual-label">Nexora</span>
+              </div>
+              <div class="project-card-overlay">
+                <a href="work.html" class="btn btn--secondary" data-i18n="view_project">Projekt ansehen</a>
+              </div>
+            </div>
+            <div class="project-card-body">
+              <p class="project-card-category" data-i18n="p3_cat">Brand Strategy</p>
+              <h3 data-i18n="p3_title">Nexora Tech</h3>
+              <p data-i18n="p3_desc">Komplett neue Positionierung und Markenarchitektur für einen B2B SaaS-Anbieter.</p>
+              <div class="project-card-footer">
+                <div class="project-tags">
+                  <span class="tag">Strategy</span>
+                  <span class="tag">Branding</span>
+                </div>
+                <a href="work.html" class="btn btn--ghost" style="padding:8px 0;">
+                  <i data-lucide="arrow-right"></i>
+                </a>
+              </div>
+            </div>
+          </article>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ===== TESTIMONIAL ===== -->
+    <section class="section section--alt testimonial-section">
+      <div class="container">
+
+        <div class="section-header section-header--center reveal">
+          <span class="section-label" data-i18n="t_label">Kundenstimmen</span>
+        </div>
+
+        <div class="testimonial-card reveal">
+          <span class="testimonial-quote-mark">"</span>
+          <p class="testimonial-quote" data-i18n="t1_quote">
+            FORMA hat nicht nur unsere Erwartungen übertroffen — sie haben uns gezeigt, was wirklich möglich ist. Das Ergebnis ist eine Marke, die wir mit Stolz nach vorne tragen.
+          </p>
+          <div class="testimonial-author">
+            <div class="testimonial-avatar">
+              <i data-lucide="user"></i>
+            </div>
+            <div>
+              <p class="testimonial-name" data-i18n="t1_name">Marie Kühn</p>
+              <p class="testimonial-role" data-i18n="t1_role">CEO, Velta Foods GmbH</p>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ===== CTA ===== -->
+    <section class="cta-section">
+      <div class="container">
+        <span class="section-label" data-i18n="cta_label">Bereit anzufangen?</span>
+        <h2 data-i18n="cta_heading">Lass uns gemeinsam etwas Bleibendes schaffen.</h2>
+        <p data-i18n="cta_desc">Ob Markenstart, Relaunch oder Website — wir freuen uns auf dein Projekt.</p>
+        <a href="contact.html" class="btn btn--dark">
+          <span data-i18n="cta_btn">Gespräch vereinbaren</span>
+          <i data-lucide="arrow-right"></i>
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- Footer injected by main.js -->
+  <div id="site-footer"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/lucide@latest/dist/umd/lucide.min.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="de" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blog — FORMA Studio</title>
+  <meta name="description" content="Gedanken zu Design, Marke und Kreativität — Einblicke aus dem Alltag bei FORMA Studio.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script>
+    (function () {
+      var t = localStorage.getItem('forma-theme') || 'dark';
+      document.documentElement.setAttribute('data-theme', t);
+    })();
+  </script>
+</head>
+<body>
+
+  <div id="site-header"></div>
+
+  <main>
+
+    <!-- ===== PAGE HERO ===== -->
+    <section class="page-hero">
+      <div class="container">
+        <span class="section-label" data-i18n="bl_label">Blog</span>
+        <h1 data-i18n="bl_heading">Gedanken zu Design & Marke.</h1>
+        <p class="page-hero-sub" data-i18n="bl_sub">Einblicke, Perspektiven und Erkenntnisse aus unserer täglichen Arbeit.</p>
+      </div>
+    </section>
+
+    <!-- ===== BLOG GRID (rendered by main.js) ===== -->
+    <section class="section">
+      <div class="container">
+        <div class="grid-3" id="blog-grid">
+          <!-- Blog cards injected by main.js renderBlogCards() -->
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <div id="site-footer"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/lucide@latest/dist/umd/lucide.min.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>

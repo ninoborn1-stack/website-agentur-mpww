@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="de" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Projekte — FORMA Studio</title>
+  <meta name="description" content="Ausgewählte Projekte von FORMA Studio — Brand Identity, Web Design, Campaign Design und mehr.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Outfit:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+  <script>
+    (function () {
+      var t = localStorage.getItem('forma-theme') || 'dark';
+      document.documentElement.setAttribute('data-theme', t);
+    })();
+  </script>
+</head>
+<body>
+
+  <div id="site-header"></div>
+
+  <main>
+
+    <!-- ===== PAGE HERO ===== -->
+    <section class="page-hero">
+      <div class="container">
+        <span class="section-label" data-i18n="wk_label">Portfolio</span>
+        <h1 data-i18n="wk_heading">Projekte, die Eindruck hinterlassen.</h1>
+        <p class="page-hero-sub" data-i18n="wk_sub">Von Brand Identity bis Web Design — echte Herausforderungen, echte Ergebnisse.</p>
+      </div>
+    </section>
+
+    <!-- ===== WORK GRID ===== -->
+    <section class="section">
+      <div class="container">
+
+        <!-- Filter -->
+        <div class="work-filter reveal">
+          <button class="filter-btn active" data-filter="all" data-i18n="filter_all">Alle</button>
+          <button class="filter-btn" data-filter="brand" data-i18n="filter_brand">Branding</button>
+          <button class="filter-btn" data-filter="web" data-i18n="filter_web">Web Design</button>
+          <button class="filter-btn" data-filter="campaign" data-i18n="filter_campaign">Campaign</button>
+        </div>
+
+        <div class="grid-2 reveal-stagger">
+
+          <!-- Project 1: Hartmann & Wolf -->
+          <article class="project-card" data-category="brand">
+            <div class="project-card-image">
+              <div class="proj-visual proj-visual--1">
+                <div class="proj-visual-accent"></div>
+                <span class="proj-visual-label">H&W</span>
+              </div>
+              <div class="project-card-overlay">
+                <span class="btn btn--secondary" data-i18n="view_case">Case Study</span>
+              </div>
+            </div>
+            <div class="project-card-body">
+              <p class="project-card-category" data-i18n="wk_p1_cat">Brand Identity</p>
+              <h3 data-i18n="wk_p1_title">Hartmann & Wolf</h3>
+              <p data-i18n="wk_p1_desc">Markenrelaunch für eine Berliner Boutique-Kanzlei — von traditionell zu elegant-modern.</p>
+              <div class="project-card-footer">
+                <div class="project-tags">
+                  <span class="tag">Branding</span>
+                  <span class="tag">Identity</span>
+                  <span class="tag">Typography</span>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project 2: Velta Foods -->
+          <article class="project-card" data-category="brand">
+            <div class="project-card-image">
+              <div class="proj-visual proj-visual--2">
+                <div class="proj-visual-accent"></div>
+                <span class="proj-visual-label">Velta</span>
+              </div>
+              <div class="project-card-overlay">
+                <span class="btn btn--secondary" data-i18n="view_case">Case Study</span>
+              </div>
+            </div>
+            <div class="project-card-body">
+              <p class="project-card-category" data-i18n="wk_p2_cat">Packaging & Identity</p>
+              <h3 data-i18n="wk_p2_title">Velta Foods</h3>
+              <p data-i18n="wk_p2_desc">Visuelle Identität und Packaging-System für ein wachsendes Bio-Start-up aus Bayern.</p>
+              <div class="project-card-footer">
+                <div class="project-tags">
+                  <span class="tag">Packaging</span>
+                  <span class="tag">Identity</span>
+                  <span class="tag">Print</span>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project 3: Bloom Studio -->
+          <article class="project-card" data-category="web">
+            <div class="project-card-image">
+              <div class="proj-visual proj-visual--3">
+                <div class="proj-visual-accent"></div>
+                <span class="proj-visual-label">Bloom</span>
+              </div>
+              <div class="project-card-overlay">
+                <span class="btn btn--secondary" data-i18n="view_case">Case Study</span>
+              </div>
+            </div>
+            <div class="project-card-body">
+              <p class="project-card-category" data-i18n="wk_p3_cat">Web Design</p>
+              <h3 data-i18n="wk_p3_title">Bloom Studio</h3>
+              <p data-i18n="wk_p3_desc">Website-Relaunch für ein Berliner Yoga-Studio — serenity trifft auf moderne UX.</p>
+              <div class="project-card-footer">
+                <div class="project-tags">
+                  <span class="tag">Web Design</span>
+                  <span class="tag">UX/UI</span>
+                  <span class="tag">Development</span>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <!-- Project 4: Nexora Tech -->
+          <article class="project-card" data-category="brand">
+            <div class="project-card-image">
+              <div class="proj-visual proj-visual--4">
+                <div class="proj-visual-accent"></div>
+                <span class="proj-visual-label">Nexora</span>
+              </div>
+              <div class="project-card-overlay">
+                <span class="btn btn--secondary" data-i18n="view_case">Case Study</span>
+              </div>
+            </div>
+            <div class="project-card-body">
+              <p class="project-card-category" data-i18n="wk_p4_cat">Brand Strategy</p>
+              <h3 data-i18n="wk_p4_title">Nexora Tech</h3>
+              <p data-i18n="wk_p4_desc">Komplett neue Positionierung und Markenarchitektur für einen B2B SaaS-Anbieter.</p>
+              <div class="project-card-footer">
+                <div class="project-tags">
+                  <span class="tag">Strategy</span>
+                  <span class="tag">Branding</span>
+                  <span class="tag">Identity</span>
+                </div>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== CTA ===== -->
+    <section class="cta-section">
+      <div class="container">
+        <span class="section-label" data-i18n="cta_label">Bereit anzufangen?</span>
+        <h2 data-i18n="cta_heading">Lass uns gemeinsam etwas Bleibendes schaffen.</h2>
+        <p data-i18n="cta_desc">Ob Markenstart, Relaunch oder Website — wir freuen uns auf dein Projekt.</p>
+        <a href="contact.html" class="btn btn--dark">
+          <span data-i18n="cta_btn">Gespräch vereinbaren</span>
+          <i data-lucide="arrow-right"></i>
+        </a>
+      </div>
+    </section>
+
+  </main>
+
+  <div id="site-footer"></div>
+
+  <script src="https://cdn.jsdelivr.net/npm/lucide@latest/dist/umd/lucide.min.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>
