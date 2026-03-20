@@ -352,6 +352,32 @@ main { padding-top: var(--nav-h); }
   pointer-events: none;
 }
 
+/* Scan line that sweeps behind all hero content */
+.hero-scanline {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(245,158,11,0.14) 25%,
+    rgba(245,158,11,0.3) 50%,
+    rgba(245,158,11,0.14) 75%,
+    transparent 100%
+  );
+  z-index: 1;
+  pointer-events: none;
+  top: 0;
+  animation: hero-scanline-move 6s ease-in-out infinite;
+}
+@keyframes hero-scanline-move {
+  0%        { top: 0%;    opacity: 0;   }
+  4%        { opacity: 1; }
+  92%       { opacity: 0.7; }
+  100%      { top: 100%;  opacity: 0;   }
+}
+
 .hero-inner {
   max-width: 1200px;
   margin: 0 auto;
@@ -360,6 +386,8 @@ main { padding-top: var(--nav-h); }
   grid-template-columns: 1fr 1fr;
   gap: 72px;
   align-items: center;
+  position: relative;
+  z-index: 2;
 }
 
 .hero-label {
@@ -447,20 +475,17 @@ main { padding-top: var(--nav-h); }
 @keyframes hero-blink-a { 0%,100% { opacity: 1;   } 50% { opacity: 0.15; } }
 @keyframes hero-blink-b { 0%,100% { opacity: 0.8; } 50% { opacity: 0.1;  } }
 @keyframes hero-ripple  { 0% { transform: scale(1); opacity: 0.55; } 100% { transform: scale(3.8); opacity: 0; } }
-@keyframes hero-diamond-3d-rot {
-  from { transform: perspective(260px) rotateY(0deg);   }
-  to   { transform: perspective(260px) rotateY(360deg); }
+@keyframes hero-sq-spin { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+@keyframes hero-forma-breathe {
+  0%, 100% { opacity: 0.11; transform: scale(1);     }
+  50%      { opacity: 0.23; transform: scale(1.016); }
 }
 
-.hero-ring-outer  { transform-box: fill-box; transform-origin: center; animation: hero-spin-ccw 58s linear infinite; }
-.hero-ring-mid    { transform-box: fill-box; transform-origin: center; animation: hero-spin-cw  34s linear infinite; }
-.hero-ring-inner  { transform-box: fill-box; transform-origin: center; animation: hero-spin-ccw 14s linear infinite; }
-.hero-diamond-3d  { transform-box: fill-box; transform-origin: center; animation: hero-diamond-3d-rot 5s linear infinite; }
-.hero-wm          { animation: hero-pulse-wm 5.5s ease-in-out infinite; }
-/* Glow duplicate: blurred copy of FORMA that breathes softly */
-@keyframes hero-wm-glow { 0%,100% { opacity: 0; } 40%,60% { opacity: 0.6; } }
-.hero-wm-glow     { animation: hero-wm-glow 5.5s ease-in-out infinite; }
-.hero-scan        { animation: hero-scan-move 7.5s ease-in-out infinite; }
+.hero-ring-outer { transform-box: fill-box; transform-origin: center; animation: hero-spin-ccw 58s linear infinite; }
+.hero-ring-mid   { transform-box: fill-box; transform-origin: center; animation: hero-spin-cw  34s linear infinite; }
+.hero-ring-inner { transform-box: fill-box; transform-origin: center; animation: hero-spin-ccw 14s linear infinite; }
+.hero-sq         { transform-box: fill-box; transform-origin: center; animation: hero-sq-spin 9s linear infinite; }
+.hero-wm         { transform-box: fill-box; transform-origin: center; animation: hero-forma-breathe 7s ease-in-out infinite; }
 .hero-node-a     { animation: hero-blink-a 3.4s ease-in-out infinite;        }
 .hero-node-b     { animation: hero-blink-b 3.4s ease-in-out infinite 0.85s;  }
 .hero-dot-1      { animation: hero-blink-a 4.2s ease-in-out infinite;         }
