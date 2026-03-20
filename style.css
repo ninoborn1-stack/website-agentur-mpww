@@ -433,7 +433,7 @@ main { padding-top: var(--nav-h); }
   object-fit: cover;
   object-position: center center;
   display: block;
-  opacity: 0.5;
+  opacity: 0.25;
 }
 
 /* Subtle grid overlay on top of photo */
