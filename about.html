@@ -49,7 +49,84 @@
 
           <div class="story-visual reveal reveal-delay-2">
             <div class="story-image">
-              <div class="story-image-art"></div>
+              <!-- ===== FORMA Story SVG — Signal Compass ===== -->
+              <svg class="story-svg-art" viewBox="0 0 360 360" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                <defs>
+                  <pattern id="sdots" width="30" height="30" patternUnits="userSpaceOnUse">
+                    <circle cx="15" cy="15" r="1" fill="rgba(255,255,255,0.07)"/>
+                  </pattern>
+                </defs>
+
+                <!-- Dot-grid background (distinct from hero line-grid) -->
+                <rect width="360" height="360" fill="url(#sdots)"/>
+
+                <!-- Corner brackets -->
+                <path d="M18 18 L52 18 L52 38" fill="none" stroke="rgba(245,158,11,0.46)" stroke-width="1.5" stroke-linecap="round"/>
+                <path d="M342 18 L308 18 L308 38" fill="none" stroke="rgba(245,158,11,0.46)" stroke-width="1.5" stroke-linecap="round"/>
+                <path d="M18 342 L52 342 L52 322" fill="none" stroke="rgba(245,158,11,0.46)" stroke-width="1.5" stroke-linecap="round"/>
+                <path d="M342 342 L308 342 L308 322" fill="none" stroke="rgba(245,158,11,0.46)" stroke-width="1.5" stroke-linecap="round"/>
+
+                <!-- Outer hexagon (dashed, slow CCW) r=125 pointy-top -->
+                <polygon class="sab-hex-outer"
+                  points="180,55 288.25,117.5 288.25,242.5 180,305 71.75,242.5 71.75,117.5"
+                  fill="none" stroke="rgba(255,255,255,0.07)" stroke-width="1" stroke-dasharray="9 14"
+                  stroke-linejoin="round"/>
+
+                <!-- 6 spokes: center → outer hex vertices -->
+                <line x1="180" y1="180" x2="180" y2="55"       stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+                <line x1="180" y1="180" x2="288.25" y2="117.5" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+                <line x1="180" y1="180" x2="288.25" y2="242.5" stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+                <line x1="180" y1="180" x2="180" y2="305"      stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+                <line x1="180" y1="180" x2="71.75" y2="242.5"  stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+                <line x1="180" y1="180" x2="71.75" y2="117.5"  stroke="rgba(255,255,255,0.04)" stroke-width="1"/>
+
+                <!-- Inner hexagon (CW, medium speed) r=70 -->
+                <polygon class="sab-hex-inner"
+                  points="180,110 240.62,145 240.62,215 180,250 119.38,215 119.38,145"
+                  fill="none" stroke="rgba(245,158,11,0.11)" stroke-width="1" stroke-dasharray="5 9"
+                  stroke-linejoin="round"/>
+
+                <!-- Outer hex vertex nodes — alternating amber/white -->
+                <circle class="sab-node-a" cx="180"    cy="55"    r="4.5" fill="rgba(245,158,11,0.15)" stroke="rgba(245,158,11,0.7)"  stroke-width="1.5"/>
+                <circle class="sab-node-b" cx="288.25" cy="117.5" r="4.5" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.35)" stroke-width="1.5"/>
+                <circle class="sab-node-a" cx="288.25" cy="242.5" r="4.5" fill="rgba(245,158,11,0.15)" stroke="rgba(245,158,11,0.7)"  stroke-width="1.5"/>
+                <circle class="sab-node-b" cx="180"    cy="305"   r="4.5" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.35)" stroke-width="1.5"/>
+                <circle class="sab-node-a" cx="71.75"  cy="242.5" r="4.5" fill="rgba(245,158,11,0.15)" stroke="rgba(245,158,11,0.7)"  stroke-width="1.5"/>
+                <circle class="sab-node-b" cx="71.75"  cy="117.5" r="4.5" fill="rgba(255,255,255,0.06)" stroke="rgba(255,255,255,0.35)" stroke-width="1.5"/>
+
+                <!-- Scanning vertical bar (left → right across hex) -->
+                <rect class="sab-scan-bar" x="71" y="55" width="1.5" height="250" fill="rgba(245,158,11,0.2)"/>
+
+                <!-- Center rotating compass rose (8-direction) -->
+                <g class="sab-center-rot" style="transform-origin: 180px 180px">
+                  <line x1="180" y1="160" x2="180" y2="200" stroke="rgba(245,158,11,0.55)" stroke-width="1.5"/>
+                  <line x1="160" y1="180" x2="200" y2="180" stroke="rgba(245,158,11,0.55)" stroke-width="1.5"/>
+                  <line x1="165" y1="165" x2="195" y2="195" stroke="rgba(245,158,11,0.28)" stroke-width="0.75"/>
+                  <line x1="195" y1="165" x2="165" y2="195" stroke="rgba(245,158,11,0.28)" stroke-width="0.75"/>
+                </g>
+
+                <!-- Center dot -->
+                <circle cx="180" cy="180" r="5.5" fill="rgba(245,158,11,0.2)" stroke="#F59E0B" stroke-width="1.5"/>
+                <circle cx="180" cy="180" r="2"   fill="#F59E0B"/>
+
+                <!-- Edge tick marks (left + right) -->
+                <line x1="18" y1="148" x2="30" y2="148" stroke="rgba(245,158,11,0.3)" stroke-width="1"/>
+                <line x1="18" y1="180" x2="34" y2="180" stroke="rgba(245,158,11,0.44)" stroke-width="1"/>
+                <line x1="18" y1="212" x2="30" y2="212" stroke="rgba(245,158,11,0.3)" stroke-width="1"/>
+                <line x1="342" y1="148" x2="330" y2="148" stroke="rgba(245,158,11,0.3)" stroke-width="1"/>
+                <line x1="342" y1="180" x2="326" y2="180" stroke="rgba(245,158,11,0.44)" stroke-width="1"/>
+                <line x1="342" y1="212" x2="330" y2="212" stroke="rgba(245,158,11,0.3)" stroke-width="1"/>
+
+                <!-- Blinking corner dots -->
+                <circle class="sab-dot-a" cx="60" cy="60"   r="2" fill="rgba(245,158,11,0.55)"/>
+                <circle class="sab-dot-b" cx="300" cy="60"  r="2" fill="rgba(245,158,11,0.55)"/>
+                <circle class="sab-dot-b" cx="60" cy="300"  r="2" fill="rgba(245,158,11,0.55)"/>
+                <circle class="sab-dot-a" cx="300" cy="300" r="2" fill="rgba(245,158,11,0.55)"/>
+
+                <!-- Small data labels -->
+                <text x="36" y="335" font-family="'Outfit', sans-serif" font-size="7" fill="rgba(245,158,11,0.25)" letter-spacing="1">2017</text>
+                <text x="324" y="335" text-anchor="end" font-family="'Outfit', sans-serif" font-size="7" fill="rgba(245,158,11,0.25)" letter-spacing="1">BLN</text>
+              </svg>
             </div>
             <div class="story-accent-block"></div>
           </div>
@@ -135,8 +212,7 @@
 
           <div class="team-card">
             <div class="team-photo">
-              <div class="team-photo-shape"></div>
-              <span class="team-photo-initials">MS</span>
+              <img src="maja%20schreiber.png" alt="Maja Schreiber" class="team-photo-img">
             </div>
             <div class="team-info">
               <h3 data-i18n="tm1_name">Maja Schreiber</h3>
@@ -147,8 +223,7 @@
 
           <div class="team-card">
             <div class="team-photo">
-              <div class="team-photo-shape"></div>
-              <span class="team-photo-initials">LV</span>
+              <img src="Leon%20Vogel.png" alt="Leon Vogel" class="team-photo-img">
             </div>
             <div class="team-info">
               <h3 data-i18n="tm2_name">Leon Vogel</h3>
@@ -159,8 +234,7 @@
 
           <div class="team-card">
             <div class="team-photo">
-              <div class="team-photo-shape"></div>
-              <span class="team-photo-initials">SM</span>
+              <img src="sara%20m%C3%BCller.png" alt="Sara Müller" class="team-photo-img">
             </div>
             <div class="team-info">
               <h3 data-i18n="tm3_name">Sara Müller</h3>
@@ -171,8 +245,7 @@
 
           <div class="team-card">
             <div class="team-photo">
-              <div class="team-photo-shape"></div>
-              <span class="team-photo-initials">TK</span>
+              <img src="tim%20kessler.png" alt="Tim Kessler" class="team-photo-img">
             </div>
             <div class="team-info">
               <h3 data-i18n="tm4_name">Tim Kessler</h3>
