@@ -988,15 +988,9 @@ main { padding-top: var(--nav-h); }
 .team-card {}
 .team-photo {
   aspect-ratio: 3/4;
-  background: var(--bg-2);
-  border-radius: var(--radius);
   overflow: hidden;
   margin-bottom: 20px;
-  border: 1px solid var(--border);
   position: relative;
-  display: flex;
-  align-items: flex-end;
-  justify-content: center;
 }
 .team-photo-shape {
   position: absolute;
