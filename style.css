@@ -732,26 +732,94 @@ main { padding-top: var(--nav-h); }
     linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
   background-size: 32px 32px;
 }
-.proj-visual-label {
+/* ===== PROJECT CARD SVG ILLUSTRATIONS ===== */
+.proj-svg {
   position: absolute;
-  font-family: 'Cormorant Garamond', serif;
-  font-size: clamp(3rem, 6vw, 5rem);
-  font-weight: 700;
-  color: rgba(255,255,255,0.06);
-  letter-spacing: -0.04em;
-  text-align: center;
+  inset: 0;
+  width: 100%;
+  height: 100%;
   pointer-events: none;
   user-select: none;
 }
-.proj-visual-accent {
-  position: absolute;
-  width: 80px;
-  height: 80px;
-  border-radius: 50%;
-  background: var(--accent-mid);
-  top: 20%;
-  right: 20%;
-  filter: blur(30px);
+
+/* ---- H&W: Scales of Justice ---- */
+@keyframes hw-swing {
+  0%, 100% { transform: rotate(-5deg); }
+  50%       { transform: rotate(5deg);  }
+}
+.hw-beam-grp {
+  animation: hw-swing 4.5s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+/* ---- Velta: Breathing plant ---- */
+@keyframes velta-breathe {
+  0%, 100% { transform: scale(1)    translateY(0);   }
+  50%       { transform: scale(1.06) translateY(-4px);}
+}
+@keyframes velta-spin {
+  from { transform: rotate(0deg);   }
+  to   { transform: rotate(360deg); }
+}
+.velta-plant {
+  transform-box: fill-box;
+  transform-origin: center bottom;
+  animation: velta-breathe 3.6s ease-in-out infinite;
+}
+.velta-ring {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: velta-spin 16s linear infinite;
+}
+
+/* ---- Bloom: Rotating mandala ---- */
+@keyframes bloom-cw  { from { transform: rotate(0deg);    } to { transform: rotate(360deg);  } }
+@keyframes bloom-ccw { from { transform: rotate(0deg);    } to { transform: rotate(-360deg); } }
+.bloom-petal-grp {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: bloom-cw 26s linear infinite;
+}
+.bloom-outer-ring {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: bloom-ccw 18s linear infinite;
+}
+.bloom-inner-ring {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: bloom-ccw 10s linear infinite;
+}
+
+/* ---- Nexora: Pulsing network ---- */
+@keyframes nexora-pulse {
+  0%, 100% { transform: scale(1);   opacity: 1;   }
+  50%       { transform: scale(1.4); opacity: 0.6; }
+}
+@keyframes nexora-blink {
+  0%, 100% { opacity: 0.9;  }
+  50%       { opacity: 0.2;  }
+}
+@keyframes nexora-ripple {
+  0%   { transform: scale(1);   opacity: 0.5; }
+  100% { transform: scale(3.2); opacity: 0;   }
+}
+.nexora-center {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: nexora-pulse 2.4s ease-in-out infinite;
+}
+.nexora-node-a { animation: nexora-blink 2.6s ease-in-out infinite; }
+.nexora-node-b { animation: nexora-blink 2.6s ease-in-out infinite 0.65s; }
+.nexora-node-c { animation: nexora-blink 2.6s ease-in-out infinite 1.3s; }
+.nexora-ripple {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: nexora-ripple 2.4s ease-out infinite;
+}
+.nexora-ripple-2 {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: nexora-ripple 2.4s ease-out infinite 1.2s;
 }
 
 .project-card-overlay {
