@@ -472,6 +472,15 @@ main { padding-top: var(--nav-h); }
   );
 }
 
+/* Foreground overlay container — above photo and tint */
+.hero-overlay-elements {
+  position: absolute;
+  inset: 0;
+  z-index: 3;
+  pointer-events: none;
+  overflow: hidden;
+}
+
 /* CSS art canvas for hero (kept for fallback reference) */
 .hero-canvas {
   position: absolute;
@@ -494,22 +503,23 @@ main { padding-top: var(--nav-h); }
   width: 55%;
   aspect-ratio: 1;
   border-radius: 50%;
-  border: 1px solid var(--accent-mid);
+  border: 1.5px solid var(--accent);
+  opacity: 0.7;
   animation: spin 24s linear infinite;
 }
 .hero-canvas-circle-inner {
   position: absolute;
   inset: 12%;
   border-radius: 50%;
-  border: 1px solid var(--border-2);
+  border: 1px solid rgba(245, 158, 11, 0.35);
 }
 .hero-canvas-dot {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 6px;
-  height: 6px;
+  width: 8px;
+  height: 8px;
   border-radius: 50%;
   background: var(--accent);
 }
@@ -519,8 +529,8 @@ main { padding-top: var(--nav-h); }
   right: 8%;
   width: 90px;
   height: 90px;
-  border: 1px solid var(--border-2);
-  background: var(--accent-dim);
+  border: 1.5px solid rgba(245, 158, 11, 0.5);
+  background: rgba(245, 158, 11, 0.12);
   transform: rotate(14deg);
 }
 .hero-canvas-line {
@@ -539,7 +549,7 @@ main { padding-top: var(--nav-h); }
   font-family: 'Cormorant Garamond', serif;
   font-size: clamp(5rem, 12vw, 9rem);
   font-weight: 700;
-  color: var(--border);
+  color: rgba(245, 158, 11, 0.22);
   line-height: 0.82;
   letter-spacing: -0.04em;
   user-select: none;
