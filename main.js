@@ -236,7 +236,7 @@ const i18nData = {
     ct_email_label: 'E-Mail',
     ct_email_val:   'hello@forma-studio.de',
     ct_phone_label: 'Telefon',
-    ct_phone_val:   '+49 30 12345678',
+    ct_phone_val:   '+49 163 8699289',
 
     ct_form_name:       'Name',
     ct_form_name_ph:    'Dein Name',
@@ -511,7 +511,7 @@ const i18nData = {
     ct_email_label: 'Email',
     ct_email_val:   'hello@forma-studio.de',
     ct_phone_label: 'Phone',
-    ct_phone_val:   '+49 30 12345678',
+    ct_phone_val:   '+49 163 8699289',
 
     ct_form_name:       'Name',
     ct_form_name_ph:    'Your name',
@@ -781,9 +781,9 @@ function injectFooter() {
             <a href="index.html" class="footer-logo">FORM<span style="color:var(--accent)">A</span></a>
             <p class="footer-tagline" data-i18n="footer_tagline">Wir gestalten Marken, die bewegen.</p>
             <div class="footer-social">
-              <a href="#" aria-label="Instagram"><i data-lucide="instagram"></i></a>
-              <a href="#" aria-label="LinkedIn"><i data-lucide="linkedin"></i></a>
-              <a href="#" aria-label="Twitter"><i data-lucide="twitter"></i></a>
+              <a href="https://www.linkedin.com/in/nino-bornhäußer-023a113b8" aria-label="LinkedIn" target="_blank" rel="noopener"><i data-lucide="linkedin"></i></a>
+              <a href="https://www.malt.de/profile/ninobornhaußer" aria-label="Malt" target="_blank" rel="noopener"><span style="font-family:'Outfit',sans-serif;font-size:13px;font-weight:600;">M</span></a>
+              <a href="https://www.upwork.com/freelancers/~01c146554b8d2a6f06?mp_source=share" aria-label="Upwork" target="_blank" rel="noopener"><span style="font-family:'Outfit',sans-serif;font-size:13px;font-weight:600;">U</span></a>
             </div>
           </div>
           <div class="footer-col">
@@ -809,8 +809,8 @@ function injectFooter() {
           <div class="footer-col">
             <h4 data-i18n="footer_contact_heading">Kontakt</h4>
             <ul>
-              <li><a href="mailto:hello@forma-studio.de">hello@forma-studio.de</a></li>
-              <li><a href="tel:+493012345678">+49 30 12345678</a></li>
+              <li><a href="mailto:nino-alexander@bornhaeusser-friends.de">nino-alexander@bornhaeusser-friends.de</a></li>
+              <li><a href="tel:+491638699289">+49 163 8699289</a></li>
               <li><a href="contact.html" data-i18n="nav_contact">Kontakt</a></li>
             </ul>
           </div>
