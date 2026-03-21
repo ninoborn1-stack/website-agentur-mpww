@@ -33,11 +33,43 @@
       </div>
     </section>
 
-    <!-- ===== BOOKING FORM ===== -->
+    <!-- ===== BOOKING GRID ===== -->
     <section class="section">
       <div class="container">
-        <div style="max-width: 720px; margin: 0 auto;">
+        <div class="booking-grid">
 
+          <!-- ===== LEFT: CALENDAR ===== -->
+          <div class="booking-cal-card">
+
+            <div class="cal-header">
+              <button class="cal-nav" id="cal-prev" type="button" aria-label="Vorheriger Monat">
+                <i data-lucide="chevron-left"></i>
+              </button>
+              <span class="cal-month-label" id="cal-month-label"></span>
+              <button class="cal-nav" id="cal-next" type="button" aria-label="Nächster Monat">
+                <i data-lucide="chevron-right"></i>
+              </button>
+            </div>
+
+            <div class="cal-weekdays">
+              <span>Mo</span>
+              <span>Di</span>
+              <span>Mi</span>
+              <span>Do</span>
+              <span>Fr</span>
+              <span>Sa</span>
+              <span>So</span>
+            </div>
+
+            <div class="cal-days" id="cal-days"></div>
+
+            <div class="cal-selection" id="cal-selection">
+              <span style="color:var(--text-3)">Startdatum wählen</span>
+            </div>
+
+          </div>
+
+          <!-- ===== RIGHT: FORM ===== -->
           <div class="form-wrapper">
 
             <form
@@ -48,6 +80,9 @@
               <!-- Honeypot spam protection -->
               <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
               <input type="hidden" name="_subject" value="Neue Event-Buchungsanfrage — FORMA Studio">
+              <!-- Date values set by calendar -->
+              <input type="hidden" id="bk-date-from" name="date_from">
+              <input type="hidden" id="bk-date-to"   name="date_to">
 
               <!-- Name + Email -->
               <div class="form-row">
@@ -90,28 +125,6 @@
                 </select>
               </div>
 
-              <!-- Date range -->
-              <div class="form-row">
-                <div class="form-group">
-                  <label for="bk-date-from" data-i18n="bk_form_date_from">Datum von</label>
-                  <input
-                    id="bk-date-from"
-                    type="date"
-                    name="date_from"
-                    required
-                  >
-                </div>
-                <div class="form-group">
-                  <label for="bk-date-to" data-i18n="bk_form_date_to">Datum bis</label>
-                  <input
-                    id="bk-date-to"
-                    type="date"
-                    name="date_to"
-                    required
-                  >
-                </div>
-              </div>
-
               <!-- Time range -->
               <div class="form-row">
                 <div class="form-group">
@@ -144,6 +157,11 @@
                   placeholder="Weitere Infos oder Wünsche (optional)"
                 ></textarea>
               </div>
+
+              <!-- Date validation hint -->
+              <p id="bk-date-hint" style="display:none;font-size:0.82rem;color:var(--accent);margin-bottom:16px;">
+                Bitte wähle zuerst einen Zeitraum im Kalender.
+              </p>
 
               <button type="submit" class="btn btn--primary form-submit">
                 <span data-i18n="bk_form_submit">Buchungsanfrage senden</span>

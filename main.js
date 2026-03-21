@@ -1011,6 +1011,110 @@ function setupContactForm() {
   });
 }
 
+/* === BOOKING CALENDAR === */
+function initBookingCalendar() {
+  const calDays = document.getElementById('cal-days');
+  if (!calDays) return;
+
+  const monthLabel = document.getElementById('cal-month-label');
+  const selDisplay = document.getElementById('cal-selection');
+  const inputFrom  = document.getElementById('bk-date-from');
+  const inputTo    = document.getElementById('bk-date-to');
+
+  const MONTHS_DE = ['Januar','Februar','März','April','Mai','Juni','Juli','August','September','Oktober','November','Dezember'];
+  const MONTHS_EN = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+
+  const now = new Date();
+  let viewY   = now.getFullYear();
+  let viewM   = now.getMonth();
+  let start   = null;
+  let end     = null;
+  let picking = 'start';
+
+  function toISO(d) {
+    return d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0');
+  }
+
+  function fmtDE(d) {
+    return d.getDate() + '. ' + MONTHS_DE[d.getMonth()];
+  }
+
+  function sameDay(a, b) {
+    return a && b && a.getFullYear() === b.getFullYear() && a.getMonth() === b.getMonth() && a.getDate() === b.getDate();
+  }
+
+  function render() {
+    const months      = currentLang === 'en' ? MONTHS_EN : MONTHS_DE;
+    monthLabel.textContent = months[viewM] + ' ' + viewY;
+
+    const firstDay    = new Date(viewY, viewM, 1);
+    const lastDay     = new Date(viewY, viewM + 1, 0);
+    const startOffset = (firstDay.getDay() + 6) % 7;
+
+    const today = new Date();
+    today.setHours(0, 0, 0, 0);
+
+    let html = '';
+    for (let i = 0; i < startOffset; i++) html += '<div class="cal-day cal-day--empty"></div>';
+
+    for (let d = 1; d <= lastDay.getDate(); d++) {
+      const date = new Date(viewY, viewM, d);
+      date.setHours(0, 0, 0, 0);
+      const isPast  = date < today;
+      const isStart = !isPast && sameDay(date, start);
+      const isEnd   = !isPast && sameDay(date, end);
+      const inRange = !isPast && start && end && date > start && date < end;
+
+      let cls = 'cal-day';
+      if (isPast)                cls += ' cal-day--past';
+      else if (isStart && isEnd) cls += ' cal-day--start cal-day--end';
+      else if (isStart)          cls += ' cal-day--start';
+      else if (isEnd)            cls += ' cal-day--end';
+      else if (inRange)          cls += ' cal-day--range';
+
+      html += `<div class="${cls}" data-date="${toISO(date)}">${d}</div>`;
+    }
+    calDays.innerHTML = html;
+
+    const arrow = '<span style="color:var(--text-3);margin:0 6px">→</span>';
+    const hint  = currentLang === 'en' ? 'Select end date' : 'Enddatum wählen';
+    const init  = currentLang === 'en' ? 'Select start date' : 'Startdatum wählen';
+
+    if (start && end)   selDisplay.innerHTML = `<strong>${fmtDE(start)}</strong>${arrow}<strong>${fmtDE(end)}</strong>`;
+    else if (start)     selDisplay.innerHTML = `<strong>${fmtDE(start)}</strong>${arrow}<span style="color:var(--text-3)">${hint}</span>`;
+    else                selDisplay.innerHTML = `<span style="color:var(--text-3)">${init}</span>`;
+  }
+
+  calDays.addEventListener('click', e => {
+    const el = e.target.closest('.cal-day');
+    if (!el || el.classList.contains('cal-day--empty') || el.classList.contains('cal-day--past')) return;
+
+    const clicked = new Date(el.dataset.date);
+    clicked.setHours(0, 0, 0, 0);
+
+    if (picking === 'start' || (start && end)) {
+      start = clicked; end = null; picking = 'end';
+    } else {
+      if (clicked < start) { end = start; start = clicked; }
+      else                  { end = clicked; }
+      picking = 'start';
+    }
+
+    if (inputFrom) inputFrom.value = start ? toISO(start) : '';
+    if (inputTo)   inputTo.value   = end   ? toISO(end)   : '';
+    render();
+  });
+
+  document.getElementById('cal-prev').addEventListener('click', () => {
+    if (--viewM < 0) { viewM = 11; viewY--; } render();
+  });
+  document.getElementById('cal-next').addEventListener('click', () => {
+    if (++viewM > 11) { viewM = 0; viewY++; } render();
+  });
+
+  render();
+}
+
 /* === BOOKING FORM HANDLER === */
 function setupBookingForm() {
   const form = document.getElementById('booking-form');
@@ -1018,8 +1122,17 @@ function setupBookingForm() {
 
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
-    const btn     = form.querySelector('.form-submit');
-    const success = document.getElementById('booking-success');
+    const btn      = form.querySelector('.form-submit');
+    const success  = document.getElementById('booking-success');
+    const dateHint = document.getElementById('bk-date-hint');
+    const dateFrom = document.getElementById('bk-date-from');
+
+    // Require calendar date selection
+    if (!dateFrom || !dateFrom.value) {
+      if (dateHint) dateHint.style.display = 'block';
+      return;
+    }
+    if (dateHint) dateHint.style.display = 'none';
 
     btn.textContent = '...';
     btn.disabled    = true;
@@ -1061,6 +1174,7 @@ document.addEventListener('DOMContentLoaded', () => {
   setupScrollReveal();
   setupWorkFilter();
   setupContactForm();
+  initBookingCalendar();
   setupBookingForm();
 
   /* Blog page */
